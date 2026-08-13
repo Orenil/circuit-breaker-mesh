@@ -1,0 +1,44 @@
+{
+  "name": "circuit-breaker-mesh",
+  "version": "1.0.0",
+  "description": "Per-dependency circuit breaker, bulkhead isolation, and decorrelated-jitter retry for service-to-service calls, with a chaos-testing harness that proves the failure behavior it claims.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "tsx --test test/*.test.ts",
+    "test:chaos": "tsx --test test/chaos-scenarios.test.ts test/bulkhead-isolation.test.ts",
+    "demo": "tsx chaos/runDemo.ts",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "circuit-breaker",
+    "bulkhead",
+    "retry",
+    "resilience",
+    "jitter",
+    "chaos-engineering",
+    "backpressure"
+  ],
+  "license": "MIT",
+  "author": "Orenil",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
